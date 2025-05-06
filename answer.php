@@ -31,34 +31,20 @@
       <div class="right-image">
         <img src="./images/multiplication_chart.png" alt="Multiplication Chart" />
       </div>
-      <div class="page-content">Please enter a number and what you want it to be multiplied by.</div>
       <br />
-      <form action="answer.php" method="GET">
-        <div class="mdl-textfield mdl-js-textfield">
-          <!-- input pattern attribute -->
-          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="factor" />
-          <!-- mdl-textfield__label -->
-          <label class="mdl-textfield__label" for="demo-input">Factor...</label>
-          <!-- class "mdl-textfield__error" -->
-          <span class="mdl-textfield__error">Input is not a number</span>
-        </div>
-        <br />
-        <div class="mdl-textfield mdl-js-textfield">
-          <!-- input pattern attribute -->
-          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="multiplier" />
-          <!-- mdl-textfield__label -->
-          <label class="mdl-textfield__label" for="demo-input">Multiplier...</label>
-          <!-- class "mdl-textfield__error" -->
-          <span class="mdl-textfield__error">Input is not a number</span>
-        </div>
-        <br />
-        <!-- Accent-colored raised button with ripple -->
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-          type="submit">
-          Multiply
-        </button>
-      </form>
-      <br />
+      <?php
+      $factor = $_GET["factor"];
+      $multiplier = $_GET["multiplier"];
+      $product = 0;
+      while ($multiplier > 0) {
+        $product = $product + $factor;
+        $multiplier = $multiplier - 1;
+      }
+      // Display result and original inputs
+      echo "Factor: " . $_GET["factor"] . "<br>";
+      echo "Multiplier: " . $_GET["multiplier"] . "<br>";
+      echo "The product is " . $product . ".";
+      ?>
     </main>
   </div>
 </body>
